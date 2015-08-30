@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<ArrayOfItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <items>
+    <Item>
+      <id>1</id>
+      <firstName>Vasya</firstName>
+      <lastName>Ivanov</lastName>
+      <positionsHistory>
+        <Position>
+          <latitude>124</latitude>
+          <longitude>45</longitude>
+          <accuracy>789</accuracy>
+          <time>2015-08-28T00:00:00+03:00</time>
+        </Position>
+        <Position>
+          <latitude>112324</latitude>
+          <longitude>452</longitude>
+          <accuracy>4789</accuracy>
+          <time>2015-08-28T00:00:00+03:00</time>
+        </Position>
+      </positionsHistory>
+      <jobHistory>
+        <Job>
+          <time>2015-08-28T00:00:00+03:00</time>
+          <decription>Some decription</decription>
+          <phone>0978263445</phone>
+          <userId>12</userId>
+        </Job>
+        <Job>
+          <time>2015-08-28T00:00:00+03:00</time>
+          <decription>Some decription2</decription>
+          <phone>0956683445</phone>
+          <userId>13</userId>
+        </Job>
+      </jobHistory>
+      <Id>1</Id>
+      <FirstName>Vasya</FirstName>
+      <LastName>Ivanov</LastName>
+    </Item>
+    <Item>
+      <id>1</id>
+      <firstName>Vasya</firstName>
+      <lastName>Ivanov</lastName>
+      <positionsHistory>
+        <Position>
+          <latitude>124</latitude>
+          <longitude>45</longitude>
+          <accuracy>789</accuracy>
+          <time>2015-08-28T00:00:00+03:00</time>
+        </Position>
+        <Position>
+          <latitude>112324</latitude>
+          <longitude>452</longitude>
+          <accuracy>4789</accuracy>
+          <time>2015-08-28T00:00:00+03:00</time>
+        </Position>
+      </positionsHistory>
+      <jobHistory>
+        <Job>
+          <time>2015-08-28T00:00:00+03:00</time>
+          <decription>Some decription</decription>
+          <phone>0978263445</phone>
+          <userId>12</userId>
+        </Job>
+        <Job>
+          <time>2015-08-28T00:00:00+03:00</time>
+          <decription>Some decription2</decription>
+          <phone>0956683445</phone>
+          <userId>13</userId>
+        </Job>
+      </jobHistory>
+      <Id>1</Id>
+      <FirstName>Vasya</FirstName>
+      <LastName>Ivanov</LastName>
+    </Item>
+  </items>
+</ArrayOfItem>
