@@ -37,18 +37,19 @@ namespace ConsoleApplication5
             jobHistory = jobHistories;
         }
 
+        [XmlIgnore]
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-
+        [XmlIgnore]
         public string FirstName
         {
             get { return firstName; }
             set { firstName = value; }
         }
-
+        [XmlIgnore]
         public string LastName
         {
             get { return lastName; }

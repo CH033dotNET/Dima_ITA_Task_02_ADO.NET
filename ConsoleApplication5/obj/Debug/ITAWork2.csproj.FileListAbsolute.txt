@@ -1,0 +1,12 @@
+D:\My project\Pacmen\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe.config
+D:\My project\Pacmen\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.exe
+D:\My project\Pacmen\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.pdb
+D:\My project\Pacmen\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe
+D:\My project\Pacmen\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.pdb
+D:\My project\Pacmen\ConsoleApplication5\ConsoleApplication5\obj\Debug\ITAWork2.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\ITAWork2\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe.config
+D:\Documents\GitHub\ITAWork2\ConsoleApplication5\obj\Debug\ConsoleApplication5.exe
+D:\Documents\GitHub\ITAWork2\ConsoleApplication5\obj\Debug\ConsoleApplication5.pdb
+D:\Documents\GitHub\ITAWork2\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe
+D:\Documents\GitHub\ITAWork2\ConsoleApplication5\bin\Debug\ConsoleApplication5.pdb
+D:\Documents\GitHub\ITAWork2\ConsoleApplication5\obj\Debug\ITAWork2.csprojResolveAssemblyReference.cache

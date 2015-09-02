@@ -17,23 +17,24 @@ namespace ConsoleApplication5
         public void CreateXml()
         {
             Position position1 = new Position(124, 45, 789, DateTime.Today);
-            Position position2 = new Position(112324, 452, 4789, DateTime.Today);
+            Position position2 = new Position(1284, 452, 4789, DateTime.Today);
            
             List<Position> positions = new List<Position>();
             positions.Add(position1);
             positions.Add(position2);
 
-            var job = new Job(DateTime.Today, "Some decription", "0978263445", "12");
-            var job1 = new Job(DateTime.Today, "Some decription2", "0956683445", "13");
+            var job = new Job(DateTime.Today, "Some decription", "0978263445", "1");
+            var job1 = new Job(DateTime.Today, "Some decription2", "0956683441", "1");
 
             var jobs = new List<Job>();
             jobs.Add(job);
             jobs.Add(job1);
 
             var item = new Item(1, "Vasya", "Ivanov", positions, jobs);
+            var item2 = new Item(2, "Jenya", "Positive", positions, jobs);
             var items = new List<Item>();
             items.Add(item);
-            items.Add(item);
+            items.Add(item2);
 
             // объект для сериализации
 
@@ -74,6 +75,7 @@ namespace ConsoleApplication5
             }
             Console.ReadKey();
 
+            
             return deserializeobject.items;
         }
 

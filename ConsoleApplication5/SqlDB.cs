@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
@@ -14,14 +15,13 @@ namespace ConsoleApplication5
         private string connStr;
         private SqlConnection conn;
         private CustomXmlFile xmlFile;
-
-
+        private SqlCommand cmd;
+        private string[] namesTables = { "Items", "Job", "Position" };
 
         public SqlDB()
         {
             xmlFile = new CustomXmlFile();
         }
-
         public void CreateDb()
         {
              connStr = @"Data Source=TORTOISE\MESSAP;Initial Catalog=ItaWork;Integrated Security=True";
@@ -64,11 +64,12 @@ namespace ConsoleApplication5
                 Console.ReadKey();
             }
         }
-
         public void CreateTable()
         {
+           
+
             string createItemsTable = "CREATE TABLE " +
-                                         " Items (Id int IDENTITY NOT NULL PRIMARY KEY" +
+                                         " Items (Id int  NOT NULL PRIMARY KEY" +
                                          ", FirstName Varchar(60) not null," +
                                          " LastName Varchar(60) not null)";
 
@@ -82,8 +83,8 @@ namespace ConsoleApplication5
             
             string createJobTable ="CREATE TABLE " +
                                          " Job (Id int IDENTITY NOT NULL" +
-                                         ", Time DateTime2 not null," +
-                                         " Decription nvarchar not null," +
+                                         ", Time DateTime not null," +
+                                         " Decription varchar(100) not null," +
                                          " Phone varchar(17) not null," +
                                          " UserId int NOT NULL FOREIGN KEY REFERENCES Items(Id))";
             
@@ -111,65 +112,128 @@ namespace ConsoleApplication5
             }
 
 
-
-
-           conn.Close();
-           conn.Dispose();
- 
             Console.WriteLine("Таблица создана успешно");
             Console.ReadKey();
         }
-
-
+        public void DropTableDB()
+        {
+            string[] drops = {  "DROP TABLE Position", "DROP TABLE Job","DROP TABLE Items"};
+            for (int i = 0; i < drops.Length; i++)
+            {
+                AddCommand(drops[i]);
+            }
+            Console.WriteLine("Table delited sucsefully!");
+            Console.ReadKey();
+        }
         public void InsertValueDb()
         {
             
             string comandItem ;
+            string comandPosition;
             string comandJob;
-            string valuesItems;
+            
             List<Item> items = xmlFile.Deserialize();
 
+            
+            
             foreach (Item item in items )
             {
                 comandItem =
-                    "INSERT Items VALUES ('" + item.FirstName + "', '" + item.LastName + "')";
+                    "INSERT Items VALUES ('" + item.Id + "','" + item.FirstName + "', '" + item.LastName + "')";
 
                 AddCommand(comandItem);
                 
-                foreach (var position in item.positionsHistory)
+                foreach (Position position in item.positionsHistory)
                 {
-                    comandJob = "INSERT Items VALUES ('" + position.Latitude + "', '" + position.Longitude + "', '" + position.Accuracy + "', '" + position.Time + "')";
+                    comandPosition = "INSERT Position VALUES ('" + position.Latitude + "', '" + position.Longitude + "', '" + position.Accuracy + "', '" + position.Time + "', '" + item.Id + "')";
+                    AddCommand(comandPosition);
+                }
+
+                foreach (Job job in item.jobHistory)
+                {
+                    comandJob = "INSERT Job VALUES ('" + job.Time + "', '" + job.Decription + "', '" + job.Phone + "', '" + job.UserId + "')";
                     AddCommand(comandJob);
                 }
-
-                foreach (var job in item.jobHistory)
-                {
-                    
-                }
             }
-            conn.Close();
-            conn.Dispose();
+
+            
+           
+            Console.WriteLine("Данные успешно внесенны!");
+            Console.ReadKey();
         }
 
+        public void GetAllTables()
+        {
+            for (int i = 0; i < namesTables.Length; i++)
+            {
+                GetTable(namesTables[i]);
+                Console.WriteLine("\n");
+            }
+        }
+        public void GetTable(string nameTable)
+        {
+            cmd = new SqlCommand("SELECT * FROM " + nameTable, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            DataTable table = CreateSchemaFromReader(reader, nameTable);
+
+            WriteDataFromReader(table, reader);
+            Console.WriteLine( "Name table: "+nameTable);
+            foreach (DataRow row in table.Rows)
+            {
+                foreach (DataColumn column in table.Columns)
+                    Console.WriteLine("{0}: {1}", column.ColumnName, row[column]);
+
+                Console.WriteLine();
+            }
+            reader.Close();
+            Console.ReadKey();
+        }
+        private static DataTable CreateSchemaFromReader(SqlDataReader reader, string tableName)
+        {
+            DataTable table = new DataTable(tableName);
+
+            for (int i = 0; i < reader.FieldCount; i++)
+                table.Columns.Add(new DataColumn(reader.GetName(i), reader.GetFieldType(i)));
+
+            return table;
+        }
+        private static void WriteDataFromReader(DataTable table, SqlDataReader reader)
+        {
+            while (reader.Read())
+            {
+                DataRow row = table.NewRow();
+
+                for (int i = 0; i < reader.FieldCount; i++)
+                    row[i] = reader[i];
+
+                table.Rows.Add(row);
+            }
+        }
         public void AddCommand( string command)
         {
-            using (SqlCommand cmdCreateTable = new SqlCommand(command, conn))
+            using ( cmd = new SqlCommand(command, conn))
             {
                 //посылаем запрос
                 try
                 {
-                    cmdCreateTable.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
                 catch
                 {
-                    Console.WriteLine("Ошибка при добавленни данных в таблицы ");
+                    Console.WriteLine("Ошибка команды");
                     Console.ReadKey();
-                    return;
+                    
                 }
-                Console.WriteLine("Значения в таблицу успешно добавленны");
+                
             }
-        }
 
+        }
+        public void CloseConnection()
+        {
+            conn.Close();
+            conn.Dispose();
+        }
 
             
         

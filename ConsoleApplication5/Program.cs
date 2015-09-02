@@ -19,13 +19,18 @@ namespace ConsoleApplication5
         static void Main(string[] args)
         {
            
-          // new CustomXmlFile().CreateXml();
-           new CustomXmlFile().Deserialize();
+           //new CustomXmlFile().CreateXml();
+           // new CustomXmlFile().Deserialize();
            SqlDB mySqlDb = new SqlDB();
-            mySqlDb.CreateDb();
-            //mySqlDb.CreateTable();
-            mySqlDb.InsertValueDb();
+           mySqlDb.CreateDb();
+           //mySqlDb.GetTable();
             
+           //mySqlDb.DropTableDB();
+           //mySqlDb.CreateTable();
+           //mySqlDb.InsertValueDb();
+           mySqlDb.GetAllTables();
+
+            mySqlDb.CloseConnection();
 
         }
 

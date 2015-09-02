@@ -10,68 +10,62 @@
           <latitude>124</latitude>
           <longitude>45</longitude>
           <accuracy>789</accuracy>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
         </Position>
         <Position>
-          <latitude>112324</latitude>
+          <latitude>1284</latitude>
           <longitude>452</longitude>
           <accuracy>4789</accuracy>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
         </Position>
       </positionsHistory>
       <jobHistory>
         <Job>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
           <decription>Some decription</decription>
           <phone>0978263445</phone>
-          <userId>12</userId>
+          <userId>1</userId>
         </Job>
         <Job>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
           <decription>Some decription2</decription>
-          <phone>0956683445</phone>
-          <userId>13</userId>
+          <phone>0956683441</phone>
+          <userId>1</userId>
         </Job>
       </jobHistory>
-      <Id>1</Id>
-      <FirstName>Vasya</FirstName>
-      <LastName>Ivanov</LastName>
     </Item>
     <Item>
-      <id>1</id>
-      <firstName>Vasya</firstName>
-      <lastName>Ivanov</lastName>
+      <id>2</id>
+      <firstName>Jenya</firstName>
+      <lastName>Positive</lastName>
       <positionsHistory>
         <Position>
           <latitude>124</latitude>
           <longitude>45</longitude>
           <accuracy>789</accuracy>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
         </Position>
         <Position>
-          <latitude>112324</latitude>
+          <latitude>1284</latitude>
           <longitude>452</longitude>
           <accuracy>4789</accuracy>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
         </Position>
       </positionsHistory>
       <jobHistory>
         <Job>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
           <decription>Some decription</decription>
           <phone>0978263445</phone>
-          <userId>12</userId>
+          <userId>1</userId>
         </Job>
         <Job>
-          <time>2015-08-28T00:00:00+03:00</time>
+          <time>2015-09-01T00:00:00+03:00</time>
           <decription>Some decription2</decription>
-          <phone>0956683445</phone>
-          <userId>13</userId>
+          <phone>0956683441</phone>
+          <userId>1</userId>
         </Job>
       </jobHistory>
-      <Id>1</Id>
-      <FirstName>Vasya</FirstName>
-      <LastName>Ivanov</LastName>
     </Item>
   </items>
 </ArrayOfItem>
